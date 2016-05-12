@@ -2,11 +2,3 @@ language: scala
 
 scala:
    - 2.11.8
-
-before_install:
-  - mkdir launcher
-  - curl https://repo1.maven.org/maven2/org/scala-sbt/launcher/1.0.0/launcher-1.0.0.jar > launcher/sbt-launch.jar
-  - curl https://raw.githubusercontent.com/sbt/sbt/v1.0.0-M4/src/main/conscript/xsbt/launchconfig > launcher/launchconfig
-
-script:
-   - java -Xms2048M -Xmx2048M -Xss6M -XX:MaxPermSize=512M -jar launcher/sbt-launch.jar @launcher/launchconfig ++$TRAVIS_SCALA_VERSION test
