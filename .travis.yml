@@ -9,4 +9,4 @@ before_install:
   - curl https://raw.githubusercontent.com/sbt/sbt/v1.0.0-M4/src/main/conscript/xsbt/launchconfig > launcher/launchconfig
 
 script:
-   - sbt -sbt-jar launcher/sbt-launch.jar @launcher/launchconfig ++$TRAVIS_SCALA_VERSION test
+   - java -Xms2048M -Xmx2048M -Xss6M -XX:MaxPermSize=512M -jar launcher/sbt-launch.jar @launcher/launchconfig ++$TRAVIS_SCALA_VERSION test
