@@ -1,0 +1,11 @@
+language: scala
+
+scala:
+   - 2.11.8
+
+before_install:
+  - mkdir launcher
+  - curl https://repo1.maven.org/maven2/org/scala-sbt/launcher/1.0.0/launcher-1.0.0.jar > launcher/sbt-launch.jar
+
+script:
+   - sbt ++$TRAVIS_SCALA_VERSION test -sbt-jar launcher/sbt-launch.jar
