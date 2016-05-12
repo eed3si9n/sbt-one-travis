@@ -6,6 +6,7 @@ scala:
 before_install:
   - mkdir launcher
   - curl https://repo1.maven.org/maven2/org/scala-sbt/launcher/1.0.0/launcher-1.0.0.jar > launcher/sbt-launch.jar
+  - curl https://raw.githubusercontent.com/sbt/sbt/v1.0.0-M4/src/main/conscript/xsbt/launchconfig > launcher/launchconfig
 
 script:
-   - sbt ++$TRAVIS_SCALA_VERSION test -sbt-jar launcher/sbt-launch.jar
+   - sbt -sbt-jar launcher/sbt-launch.jar @launcher/launchconfig ++$TRAVIS_SCALA_VERSION test
